@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.arsene.quizappandroid.Accueil"
+    android:background="@drawable/background">
+
+    <Button
+        android:id="@+id/bttnCommencer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="132dp"
+        android:background="@android:color/background_dark"
+        android:text="@string/commencer"
+        android:textColor="@android:color/holo_blue_dark" />
+
+    <Button
+        android:id="@+id/bttnCategorie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:background="@android:color/background_dark"
+        android:text="@string/categorie"
+        android:textColor="@android:color/holo_blue_dark" />
+
+    <Button
+        android:id="@+id/bttnQuitter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/bttnCategorie"
+        android:layout_marginTop="58dp"
+        android:background="@android:color/black"
+        android:text="@string/quitter"
+        android:textColor="@android:color/holo_blue_dark" />
+
+
+</RelativeLayout>

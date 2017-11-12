@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.arsene.quizappandroid.QuizActivity"
+    android:orientation="vertical"
+    android:id="@+id/quizLayout">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/layoutMarginTop"
+        android:layout_marginBottom="@dimen/layoutMarginBottom"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/timer"
+            android:id="@+id/timerQuiz"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:textSize="@dimen/text_size"
+            android:textColor="@color/textColor"/>
+        <TextView
+            android:id="@+id/progressionQuiz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/progressionQuiz"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:textSize="@dimen/text_size"
+            android:textColor="@color/textColor"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/text_size"
+            android:text="@string/question"
+            android:layout_marginBottom="@dimen/layoutMarginBottom"
+            android:layout_marginTop="@dimen/textViewQuestionMarginTop"
+            android:gravity="center_horizontal"
+            android:id="@+id/questionQuiz"
+            android:textColor="@color/textColor"/>
+    </LinearLayout>
+
+    <!-- Où les bouttons de choix seront crées dynamiquement-->
+    <TableLayout
+        android:layout_marginTop="@dimen/layoutMarginTop"
+        android:id="@+id/buttonTableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:stretchColumns="0,1,2">
+
+        <TableRow
+            android:id="@+id/tableRow0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            ></TableRow>
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            ></TableRow>
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            ></TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/resultatQuiz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dimenResultat"
+        android:text="@string/resultat"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/layoutMarginBottom"
+        android:textColor="@color/textColor"/>
+</LinearLayout>

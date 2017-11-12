@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">QuizAppAndroid</string>
+    <string name="timer">Timer</string>
+    <string name="progressionQuiz"> progression </string>
+    <string name="question">Question</string>
+    <string name="resultat">Resultat!</string>
+    <string name="commencer">Commencer</string>
+    <string name="categorie">Catégorie</string>
+    <string name="quitter">Quitter</string>
 </resources>
