@@ -57,6 +57,9 @@ public class Accueil extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                //Quitte L'App
+                finish();
+                System.exit(0);
             }
         });
 
