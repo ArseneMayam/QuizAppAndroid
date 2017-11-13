@@ -11,6 +11,14 @@ public class Question {
     // Constructeur
     public Question(){}
 
+    public Question(int id, int id_questionnaire, String question, int type){
+        this.id = id;
+        this.id_questionnaire = id_questionnaire;
+        this.question = question;
+        this.type = type;
+
+    }
+
     //Methodes
     public int getId() {
         return id;
