@@ -11,6 +11,12 @@ public class Reponse {
     //constructeur
     public Reponse(){}
 
+    public Reponse(int id, int id_question,String reponse){
+        this.id = id;
+        this.id_question = id_question;
+        this.reponse = reponse;
+    }
+
     // Methodes
     public int getId() {
         return id;

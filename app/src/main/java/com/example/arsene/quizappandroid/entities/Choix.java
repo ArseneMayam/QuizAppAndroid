@@ -11,6 +11,10 @@ public class Choix {
     // Constructeur
     public Choix(){}
 
+    public Choix(int id, String choix){
+        this.id=id;
+        this.choix=choix;
+    }
     //Methodes
     public int getId() {
         return id;

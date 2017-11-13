@@ -9,6 +9,11 @@ public class Categorie {
     // Constructeur
     public Categorie(){}
 
+    public Categorie(int id, String nom){
+        this.id = id;
+        this.nom =nom;
+    }
+
     // Methodes
     public int getId() {
         return id;
