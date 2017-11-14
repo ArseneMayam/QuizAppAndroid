@@ -45,10 +45,12 @@ public class QuizActivity extends AppCompatActivity {
 
 
     // variables globales
+    int idChoixBttn; // id des buttons choix
     int idQuestion;  // id de la question courrante
     int nombreChoixAff; // nbre de choix reponse sélectionné par l'utilisateur
     int nombreLigneButton ; // 1 ligne = 3 buttons
     int numeroQuestionCourrante;  // pour la barre de progression
+    int nbReponsesCorrect; // nombre de reponse corrects
     String categorieSelectionnee;  // catégorie selectionné par l'utilisateur
     String reponseCorrect; // la reponse correct
 
@@ -64,6 +66,8 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
         ctx = this;
+        idChoixBttn = 156;
+        nbReponsesCorrect = 0;
 
         // Les réferences aux composants
         timerQuiz = (TextView) findViewById(R.id.timerQuiz);
@@ -127,7 +131,8 @@ public class QuizActivity extends AppCompatActivity {
                 //inflate button
                 Button newChoixBttn = (Button) getLayoutInflater().inflate(R.layout.choix_bttn,null);
 
-                // get liste des choix et set text des buttons
+                // get liste des choix et set text des buttons et id
+                newChoixBttn.setId(idChoixBttn);
 
                 // ecoute sur les buttons
                 newChoixBttn.setOnClickListener(new View.OnClickListener() {
@@ -163,7 +168,25 @@ public class QuizActivity extends AppCompatActivity {
     private void submitButton(Button button){
 
 
+        if(button.getId() == idQuestion){
+            nbReponsesCorrect++;
 
+            // reponse correcte, on l'affiche dans le textView resultat
+            String bonneReponse = button.getText().toString();
+            resultatTxtView.setText(bonneReponse+"!");
+
+        }
+        else {
+            // on passe à la question suivante
+
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    chargerQuestionSuivante();
+                }
+            },1000); // passe à la question suivante après 1 sec
+
+        }
     }
 
 
