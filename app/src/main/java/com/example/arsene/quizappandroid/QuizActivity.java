@@ -45,6 +45,7 @@ public class QuizActivity extends AppCompatActivity {
 
     int idQuestion;  // id de la question courrante
     int nombreChoixAff; // nbre de choix reponse sélectionné par l'utilisateur
+    int nombreLigneButton ; // 1 ligne = 3 buttons
     int numeroQuestionCourrante;  // pour la barre de progression
     String categorieSelectionnee;  // catégorie selectionné par l'utilisateur
 
@@ -65,6 +66,7 @@ public class QuizActivity extends AppCompatActivity {
         buttonTableLayout = (TableLayout) findViewById(R.id.buttonTableLayout);
 
 
+        iniQuiz();
 
     }
 
@@ -110,11 +112,11 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         // ajoute 3, 6 ou 9 buttons en fonction de nombreChoixAff
-        for (int row = 0; row < nombreChoixAff; row++){
+        for (int row = 0; row < 3; row++){
             TableRow ligneBttnCourrant = getTableRow(row);
 
             // inflate le button choix
-            for (int column = 0; column<3; column++){
+            for (int column = 0; column < 3; column++){
                 //inflate button
                 Button newChoixBttn = (Button) getLayoutInflater().inflate(R.layout.choix_bttn,null);
 
