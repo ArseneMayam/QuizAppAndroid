@@ -20,6 +20,13 @@ public class QuestionManager {
     public static ArrayList<Question> getAll(Context ctx){
         ArrayList<Question> retour = new ArrayList<>();
         String queryGetAll = "select * from " + ConstDB.question.nomTable+";";
+        String queryGetSynonyme ="select * from "+ ConstDB.categorie.nomTable+" where id=1;";
+        String queryGetAntonyme ="select * from "+ ConstDB.categorie.nomTable+" where id=2;";
+        String queryGetAdverbe ="select * from "+ ConstDB.categorie.nomTable+" where id=3;";
+        String queryGetChoixAdverbe="select * from "+ ConstDB.choix.nomTable+" where id>=80;";
+        String queryGetChoixSynAnt="select * from "+ ConstDB.choix.nomTable+" where id<80;";
+        String queryGetReponse="select * from "+ ConstDB.reponse.nomTable+" where id_question=?;";
+        String queryGetScoreById="SELECT * FROM "+ ConstDB.score.nomTable+" INNER JOIN "+ ConstDB.utilisateur.nomTable+" ON score.id_utilisateur = utilisateur.id where id_utilisateur=?;";
 
 
         SQLiteDatabase bd = ConnexionDB.getBd(ctx);

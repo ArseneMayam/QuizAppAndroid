@@ -58,4 +58,14 @@ public final class ConstDB {
 
     }
 
+    public static final class score{
+        public static final String nomTable ="score";
+
+        public static final String id = "id";
+        public static final String id_utilisateur = "id_utilisateur";
+        public static final String score = "score";
+        public static final String prenom = "prenom";
+
+    }
+
 }
