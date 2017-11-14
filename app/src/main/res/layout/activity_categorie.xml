@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.arsene.quizappandroid.CategorieActivity"
+    android:background="@drawable/img_categorie"
+    >
+
+
+    <Button
+        android:id="@+id/btnSynonyme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="85dp"
+        android:background="@android:color/background_dark"
+        android:text="Synonyme"
+        android:textColor="@android:color/holo_blue_dark" />
+
+    <Button
+        android:id="@+id/btnAntonyme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnSynonyme"
+        android:layout_marginTop="48dp"
+        android:background="@android:color/background_dark"
+        android:text="Antonyme"
+        android:textColor="@android:color/holo_blue_dark" />
+
+    <Button
+        android:id="@+id/btnAdverbe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnAntonyme"
+        android:layout_marginTop="48dp"
+        android:background="@android:color/black"
+        android:text="Adverbe"
+        android:textColor="@android:color/holo_blue_dark" />
+
+    <Button
+        android:id="@+id/btnRetour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnAdverbe"
+        android:layout_marginTop="67dp"
+        android:background="@android:color/black"
+        android:text="Retour"
+        android:textColor="@android:color/holo_blue_dark" />
+
+</RelativeLayout>
