@@ -6,6 +6,12 @@ import android.os.Bundle;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
+import com.example.arsene.quizappandroid.entities.Choix;
+import com.example.arsene.quizappandroid.entities.Question;
+import com.example.arsene.quizappandroid.entities.Reponse;
+
+import java.util.ArrayList;
+
 public class QuizActivity extends AppCompatActivity {
 
     Context ctx;
@@ -15,6 +21,29 @@ public class QuizActivity extends AppCompatActivity {
     TextView questionTxtView;
     TextView resultatTxtView;
     TableLayout buttonTableLayout;
+
+    // Les arraylists questions
+    ArrayList<Question> questionsSynonmes;
+    ArrayList<Question> questionsAntonymes;
+    ArrayList<Question> questionsAdverbes;
+
+    // les arraylists de reponse
+    ArrayList<Reponse> lesReponses;
+    ArrayList<Reponse> reponsesAdverbes;
+
+    // arraylist de choix
+    ArrayList<Choix> lesChoix;
+
+    // arraylist question quiz courrant
+    ArrayList<Question> questionsQuiz;
+
+
+    // variables globales
+
+    int idQuestion;  // id de la question courrante
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +57,8 @@ public class QuizActivity extends AppCompatActivity {
         questionTxtView = (TextView) findViewById(R.id.questionQuiz);
         resultatTxtView = (TextView) findViewById(R.id.resultatQuiz);
         buttonTableLayout = (TableLayout) findViewById(R.id.buttonTableLayout);
+
+
 
     }
 }
