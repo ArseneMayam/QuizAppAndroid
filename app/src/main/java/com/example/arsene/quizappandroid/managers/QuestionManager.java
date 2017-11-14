@@ -19,6 +19,7 @@ public class QuestionManager {
     // recupere toutes les questions
     public static ArrayList<Question> getAll(Context ctx){
         ArrayList<Question> retour = new ArrayList<>();
+        //
         String queryGetAll = "select * from " + ConstDB.question.nomTable+";";
         String queryGetSynonyme ="select * from "+ ConstDB.categorie.nomTable+" where id=1;";
         String queryGetAntonyme ="select * from "+ ConstDB.categorie.nomTable+" where id=2;";
