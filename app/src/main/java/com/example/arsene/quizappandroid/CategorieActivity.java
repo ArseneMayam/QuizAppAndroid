@@ -19,8 +19,7 @@ public class CategorieActivity extends AppCompatActivity {
         ctx=this;
 
         btnRetour=(Button) findViewById(R.id.btnRetour);
-
-
+        
         btnRetour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
