@@ -41,6 +41,8 @@ public class QuizActivity extends AppCompatActivity {
     // variables globales
 
     int idQuestion;  // id de la question courrante
+    int nombreChoixAff; // nbre de choix reponse sélectionné par l'utilisateur
+    String categorieSelectionnee;  // catégorie selectionné par l'utilisateur
 
 
 
@@ -61,4 +63,27 @@ public class QuizActivity extends AppCompatActivity {
 
 
     }
+
+    // methode pour initialiser le quiz
+    private void iniQuiz(){
+
+
+
+
+        // on passe à la question
+        chargerQuestionSuivante();
+    }
+
+
+    // methode pour passer à la question suivante
+    private void chargerQuestionSuivante(){
+
+
+
+    }
+
+
+
+
+
 }
