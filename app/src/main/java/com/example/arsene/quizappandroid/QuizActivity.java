@@ -69,6 +69,21 @@ public class QuizActivity extends AppCompatActivity {
 
 
 
+        // en fonction de la catégorie selectionnée on initialise arraylist questionQuiz
+        switch (categorieSelectionnee){
+
+            case "synonyme": ;
+
+            break;
+
+            case "antonyme":;
+            break;
+
+            case "adverbe":;
+            break;
+
+        }
+
 
         // on passe à la question
         chargerQuestionSuivante();
@@ -77,6 +92,14 @@ public class QuizActivity extends AppCompatActivity {
 
     // methode pour passer à la question suivante
     private void chargerQuestionSuivante(){
+
+        // efface textView resultat
+        resultatTxtView.setText(" ");
+
+
+        
+
+
 
 
 
