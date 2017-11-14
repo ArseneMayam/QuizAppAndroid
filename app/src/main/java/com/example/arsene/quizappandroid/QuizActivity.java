@@ -44,6 +44,7 @@ public class QuizActivity extends AppCompatActivity {
 
     int idQuestion;  // id de la question courrante
     int nombreChoixAff; // nbre de choix reponse sélectionné par l'utilisateur
+    int numeroQuestionCourrante;  // pour la barre de progression
     String categorieSelectionnee;  // catégorie selectionné par l'utilisateur
 
 
@@ -68,6 +69,8 @@ public class QuizActivity extends AppCompatActivity {
 
     // methode pour initialiser le quiz
     private void iniQuiz(){
+        // initialise progression quiz
+        numeroQuestionCourrante = 0;
 
 
 
@@ -94,6 +97,8 @@ public class QuizActivity extends AppCompatActivity {
 
     // methode pour passer à la question suivante
     private void chargerQuestionSuivante(){
+        // à chaque fois qu'on passe à la question suivante
+        numeroQuestionCourrante++;
 
         // efface textView resultat
         resultatTxtView.setText(" ");
