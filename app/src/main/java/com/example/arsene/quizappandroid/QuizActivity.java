@@ -3,7 +3,9 @@ package com.example.arsene.quizappandroid;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.example.arsene.quizappandroid.entities.Choix;
@@ -85,7 +87,7 @@ public class QuizActivity extends AppCompatActivity {
         }
 
 
-        // on passe à la question
+        // on passe à la question suivante
         chargerQuestionSuivante();
     }
 
@@ -97,9 +99,15 @@ public class QuizActivity extends AppCompatActivity {
         resultatTxtView.setText(" ");
 
 
-        
+    }
 
+    // methode retourne le tableRow courrant
+    private TableRow getTableRow(int row){
+        return (TableRow) buttonTableLayout.getChildAt(row);
+    }
 
+    // methode appellée lorsque utilisateur clique un bttn choix
+    private void submitButton(Button button){
 
 
 
