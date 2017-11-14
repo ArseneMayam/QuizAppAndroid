@@ -1,6 +1,7 @@
 package com.example.arsene.quizappandroid;
 
 import android.content.Context;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,9 @@ import com.example.arsene.quizappandroid.entities.Choix;
 import com.example.arsene.quizappandroid.entities.Question;
 import com.example.arsene.quizappandroid.entities.Reponse;
 
+
 import java.util.ArrayList;
+import java.util.Random;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -42,12 +45,16 @@ public class QuizActivity extends AppCompatActivity {
 
 
     // variables globales
-
     int idQuestion;  // id de la question courrante
     int nombreChoixAff; // nbre de choix reponse sélectionné par l'utilisateur
     int nombreLigneButton ; // 1 ligne = 3 buttons
     int numeroQuestionCourrante;  // pour la barre de progression
     String categorieSelectionnee;  // catégorie selectionné par l'utilisateur
+    String reponseCorrect; // la reponse correct
+
+
+    Random random; // nb aléatoire
+    Handler handler;
 
 
 
@@ -134,8 +141,15 @@ public class QuizActivity extends AppCompatActivity {
             }
         }
 
-        // on remplace le text d'un boutton par la reponse correct
+        // on remplace le text d'un boutton aléatoire par la reponse correct
         // set sont id = id_question
+        int row = random.nextInt(nombreLigneButton);
+        int column = random.nextInt(3);
+        TableRow randomTableRow = getTableRow(row);
+        ((Button) randomTableRow.getChildAt(column)).setText(reponseCorrect);
+        ((Button) randomTableRow.getChildAt(column)).setId(idQuestion);
+
+
 
 
     }
