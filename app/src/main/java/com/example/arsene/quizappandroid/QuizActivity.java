@@ -72,9 +72,11 @@ public class QuizActivity extends AppCompatActivity {
         ctx = this;
         idChoixBttn = 156;
         nbReponsesCorrect = 0;
-        nombreLigneButton = 3;
+        nombreLigneButton = 2;
         random = new Random();
         laQuestion = null;
+        handler = new Handler();
+        reponseCorrect =" ";
 
         // Les réferences aux composants
         timerQuiz = (TextView) findViewById(R.id.timerQuiz);
@@ -128,23 +130,41 @@ public class QuizActivity extends AppCompatActivity {
     // methode pour passer à la question suivante
     private void chargerQuestionSuivante(){
 
+        reponseCorrect  = " ";
 
-        if (laQuestion != null){
-            questionsQuiz.remove(0);
-        }else if (laQuestion == null){
+
+        if (laQuestion == null){
             laQuestion =questionsQuiz.get(0);
 
+
+        }else {
+            questionsQuiz.remove(0);
+            laQuestion = questionsQuiz.get(0);
         }
         // get id de la question
         idQuestion = laQuestion.getId();
 
+        System.out.println("id de la question : "+laQuestion.getId());
+
+
+        // affiche la question
+        questionTxtView.setText(laQuestion.getQuestion());
+
         // get la reponse correct
         for (Reponse reponse : lesReponses){
+            System.out.print("DANS LA BOUCLE REPONSE ");
 
             if(reponse.getId_question() == idQuestion){
+
                 reponseCorrect = reponse.getReponse();
-                break;
+                System.out.print("la reponse : "+ reponseCorrect +" ");
+
             }
+            break;
+
+           // System.out.print("Test 2222 :" + reponseCorrect);
+
+
 
         }
 
@@ -156,8 +176,7 @@ public class QuizActivity extends AppCompatActivity {
         resultatTxtView.setText(" ");
 
 
-        // affiche la question
-        questionTxtView.setText(laQuestion.getQuestion());
+
 
         // efface les buttons de choix précédents
         for (int row = 0; row < buttonTableLayout.getChildCount(); row++){
@@ -214,18 +233,27 @@ public class QuizActivity extends AppCompatActivity {
             String bonneReponse = button.getText().toString();
             resultatTxtView.setText(bonneReponse+"!");
 
+
+
         }
         else {
-            // on passe à la question suivante
-
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    chargerQuestionSuivante();
-                }
-            },1000); // passe à la question suivante après 1 sec
-
+            resultatTxtView.setText("Incorrect !");
         }
+        // on passe à la question suivante
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                chargerQuestionSuivante();
+            }
+        },1000); // passe à la question suivante après 1 sec
+
+
+
+
+
+
+
     }
 
 
