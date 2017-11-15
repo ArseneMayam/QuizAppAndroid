@@ -10,6 +10,9 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.example.arsene.quizappandroid.TestManagers.TestManagerChoix;
+import com.example.arsene.quizappandroid.TestManagers.TestManagerQuestion;
+import com.example.arsene.quizappandroid.TestManagers.TestManagerReponse;
 import com.example.arsene.quizappandroid.entities.Choix;
 import com.example.arsene.quizappandroid.entities.Question;
 import com.example.arsene.quizappandroid.entities.Reponse;
@@ -53,6 +56,7 @@ public class QuizActivity extends AppCompatActivity {
     int nbReponsesCorrect; // nombre de reponse corrects
     String categorieSelectionnee;  // catégorie selectionné par l'utilisateur
     String reponseCorrect; // la reponse correct
+    Question laQuestion;
 
 
     Random random; // nb aléatoire
@@ -68,6 +72,9 @@ public class QuizActivity extends AppCompatActivity {
         ctx = this;
         idChoixBttn = 156;
         nbReponsesCorrect = 0;
+        nombreLigneButton = 3;
+        random = new Random();
+        laQuestion = null;
 
         // Les réferences aux composants
         timerQuiz = (TextView) findViewById(R.id.timerQuiz);
@@ -76,6 +83,11 @@ public class QuizActivity extends AppCompatActivity {
         resultatTxtView = (TextView) findViewById(R.id.resultatQuiz);
         buttonTableLayout = (TableLayout) findViewById(R.id.buttonTableLayout);
 
+        categorieSelectionnee = "synonyme";
+        questionsQuiz =new ArrayList<>();
+        questionsSynonmes = TestManagerQuestion.getAll();
+        lesReponses = TestManagerReponse.getAll();
+        lesChoix = TestManagerChoix.getAll();
 
         iniQuiz();
 
@@ -91,14 +103,18 @@ public class QuizActivity extends AppCompatActivity {
         // en fonction de la catégorie selectionnée on initialise arraylist questionQuiz
         switch (categorieSelectionnee){
 
-            case "synonyme": ;
+          case "synonyme":
+
+              for (Question question : questionsSynonmes){
+                  questionsQuiz.add(question);
+              }
 
             break;
 
             case "antonyme":;
-            break;
+           break;
 
-            case "adverbe":;
+           case "adverbe":;
             break;
 
         }
@@ -111,11 +127,37 @@ public class QuizActivity extends AppCompatActivity {
 
     // methode pour passer à la question suivante
     private void chargerQuestionSuivante(){
+
+
+        if (laQuestion != null){
+            questionsQuiz.remove(0);
+        }else if (laQuestion == null){
+            laQuestion =questionsQuiz.get(0);
+
+        }
+        // get id de la question
+        idQuestion = laQuestion.getId();
+
+        // get la reponse correct
+        for (Reponse reponse : lesReponses){
+
+            if(reponse.getId_question() == idQuestion){
+                reponseCorrect = reponse.getReponse();
+                break;
+            }
+
+        }
+
+
         // à chaque fois qu'on passe à la question suivante
         numeroQuestionCourrante++;
 
         // efface textView resultat
         resultatTxtView.setText(" ");
+
+
+        // affiche la question
+        questionTxtView.setText(laQuestion.getQuestion());
 
         // efface les buttons de choix précédents
         for (int row = 0; row < buttonTableLayout.getChildCount(); row++){
@@ -123,7 +165,7 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         // ajoute 3, 6 ou 9 buttons en fonction de nombreChoixAff
-        for (int row = 0; row < 3; row++){
+        for (int row = 0; row < nombreLigneButton; row++){
             TableRow ligneBttnCourrant = getTableRow(row);
 
             // inflate le button choix
@@ -153,9 +195,6 @@ public class QuizActivity extends AppCompatActivity {
         TableRow randomTableRow = getTableRow(row);
         ((Button) randomTableRow.getChildAt(column)).setText(reponseCorrect);
         ((Button) randomTableRow.getChildAt(column)).setId(idQuestion);
-
-
-
 
     }
 
@@ -188,9 +227,6 @@ public class QuizActivity extends AppCompatActivity {
 
         }
     }
-
-
-
 
 
 }
