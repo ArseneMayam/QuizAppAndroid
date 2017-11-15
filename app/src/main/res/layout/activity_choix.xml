@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.arsene.quizappandroid.ChoixActivity"
+    android:background="@drawable/img_categorie"
+    >
+
+
+    <Button
+        android:id="@+id/btn3choix"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="125dp"
+        android:text="3 choix de réponses"
+        android:background="@android:color/black"
+        android:textColor="@android:color/holo_blue_dark"/>
+
+    <Button
+        android:id="@+id/btn6choix"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btn3choix"
+        android:layout_marginTop="32dp"
+        android:background="@android:color/black"
+        android:text="6 choix de réponses"
+        android:textColor="@android:color/holo_blue_dark" />
+
+    <Button
+        android:id="@+id/btn9choix"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btn6choix"
+        android:layout_marginTop="27dp"
+        android:background="@android:color/black"
+        android:text="9 choix de réponse"
+        android:textColor="@android:color/holo_blue_dark" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btn9choix"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/black"
+        android:text="Commencer le Quiz !"
+        android:textColor="@android:color/holo_blue_dark" />
+</RelativeLayout>

@@ -11,6 +11,7 @@ public class CategorieActivity extends AppCompatActivity {
 
     Context ctx;
     Button btnRetour;
+    Button btnCategorie1,btnCategorie2,btnCategorie3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +19,37 @@ public class CategorieActivity extends AppCompatActivity {
         setContentView(R.layout.activity_categorie);
         ctx=this;
 
+
         btnRetour=(Button) findViewById(R.id.btnRetour);
-        
+        btnCategorie1=(Button) findViewById(R.id.btnSynonyme);
+        btnCategorie2=(Button) findViewById(R.id.btnAntonyme);
+        btnCategorie3=(Button) findViewById(R.id.btnAdverbe);
+
+        btnCategorie1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ctx,ChoixActivity.class );
+                startActivity(intent);
+            }
+        });
+
+        btnCategorie2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ctx,ChoixActivity.class );
+                startActivity(intent);
+            }
+        });
+
+        btnCategorie3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ctx,ChoixActivity.class );
+                startActivity(intent);
+            }
+        });
+
+
         btnRetour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

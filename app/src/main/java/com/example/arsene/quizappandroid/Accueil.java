@@ -35,11 +35,8 @@ public class Accueil extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                redirection = new Intent();
-
-
-
-
+                Intent intent = new Intent(ctx, FormulaireActivity.class);
+                startActivity(intent);
             }
         });
 
