@@ -29,7 +29,9 @@ public class QuizActivity extends AppCompatActivity {
     TextView progressionQuiz;
     TextView questionTxtView;
     TextView resultatTxtView;
+    TextView scoreTextView;
     TableLayout buttonTableLayout;
+
 
     // Les arraylists questions
     ArrayList<Question> questionsSynonmes;
@@ -54,6 +56,7 @@ public class QuizActivity extends AppCompatActivity {
     int nombreLigneButton ; // 1 ligne = 3 buttons
     int numeroQuestionCourrante;  // pour la barre de progression
     int nbReponsesCorrect; // nombre de reponse corrects
+
     String categorieSelectionnee;  // catégorie selectionné par l'utilisateur
     String reponseCorrect; // la reponse correct
     Question laQuestion;
@@ -84,6 +87,7 @@ public class QuizActivity extends AppCompatActivity {
         questionTxtView = (TextView) findViewById(R.id.questionQuiz);
         resultatTxtView = (TextView) findViewById(R.id.resultatQuiz);
         buttonTableLayout = (TableLayout) findViewById(R.id.buttonTableLayout);
+        scoreTextView = (TextView) findViewById(R.id.scoreTextView);
 
         categorieSelectionnee = "synonyme";
         questionsQuiz =new ArrayList<>();
@@ -185,7 +189,10 @@ public class QuizActivity extends AppCompatActivity {
                 //inflate button
                 Button newChoixBttn = (Button) getLayoutInflater().inflate(R.layout.choix_bttn,null);
 
+                // on get les choix
+                Choix unChoix = lesChoix.get((row*3)+column);
                 // get liste des choix et set text des buttons et id
+                newChoixBttn.setText(unChoix.getChoix());
                 newChoixBttn.setId(idChoixBttn);
 
                 // ecoute sur les buttons
@@ -225,12 +232,16 @@ public class QuizActivity extends AppCompatActivity {
             // reponse correcte, on l'affiche dans le textView resultat
             String bonneReponse = button.getText().toString();
             resultatTxtView.setText(bonneReponse+"!");
+            resultatTxtView.setTextColor(getResources().getColor(R.color.reponseCorrect));
+            scoreTextView.setText(nbReponsesCorrect+" / 20");
+            scoreTextView.setTextColor(getResources().getColor(R.color.reponseCorrect));
 
 
 
         }
         else {
             resultatTxtView.setText("Incorrect !");
+            resultatTxtView.setTextColor(getResources().getColor(R.color.reponseIncorrect));
         }
         // on passe à la question suivante
 
