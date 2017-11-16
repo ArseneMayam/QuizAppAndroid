@@ -67,4 +67,52 @@ public class QuestionManager {
         }
         return retour;
     }
+
+    //recupere toutes les questions catégorie antonymes
+    public static ArrayList<Question> questionsAntonymes(Context ctx){
+        ArrayList<Question> retour = new ArrayList<>();
+
+        String query = "select * from "+ConstDB.question.nomTable+" where "+ ConstDB.question.id_questionnaire+
+                " =2;";
+        SQLiteDatabase bd = ConnexionDB.getBd(ctx);
+        Cursor c = bd.rawQuery(query,null);
+
+        while (c.moveToNext()){
+            int id = c.getInt(0);
+            int id_questionnaire = c.getInt(1);
+            String question = c.getString(2);
+            int type = c.getInt(3);
+
+            Question q = new Question(id,id_questionnaire,question,type);
+            retour.add(q);
+        }
+        return retour;
+    }
+
+    // recupere toutes les questions catégorie adverbes
+    public static ArrayList<Question> questionsAdverbes(Context ctx){
+        ArrayList<Question> retour = new ArrayList<>();
+
+        String query = "select * from "+ConstDB.question.nomTable+" where "+ ConstDB.question.id_questionnaire+
+                " =3;";
+
+        SQLiteDatabase bd = ConnexionDB.getBd(ctx);
+        Cursor c = bd.rawQuery(query,null);
+
+        while (c.moveToNext()){
+            int id = c.getInt(0);
+            int id_questionnaire = c.getInt(1);
+            String question = c.getString(2);
+            int type = c.getInt(3);
+
+            Question q = new Question(id,id_questionnaire,question,type);
+            retour.add(q);
+        }
+        return retour;
+    }
+
+
+
+
+
 }
