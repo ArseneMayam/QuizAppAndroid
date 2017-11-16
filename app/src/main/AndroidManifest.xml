@@ -18,7 +18,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Accueil">
-
         </activity>
         <activity android:name=".CategorieActivity" />
         <activity android:name=".FormulaireActivity" />

@@ -130,7 +130,7 @@ public class QuizActivity extends AppCompatActivity {
     // methode pour passer à la question suivante
     private void chargerQuestionSuivante(){
 
-        reponseCorrect  = " ";
+        //reponseCorrect  = " ";
 
 
         if (laQuestion == null){
@@ -146,25 +146,18 @@ public class QuizActivity extends AppCompatActivity {
 
         System.out.println("id de la question : "+laQuestion.getId());
 
-
         // affiche la question
         questionTxtView.setText(laQuestion.getQuestion());
 
         // get la reponse correct
         for (Reponse reponse : lesReponses){
-            System.out.print("DANS LA BOUCLE REPONSE ");
+            System.out.print("---DANS LA BOUCLE REPONSE ---");
 
-            if(reponse.getId_question() == idQuestion){
-
+            if(reponse.getId() == idQuestion){
                 reponseCorrect = reponse.getReponse();
-                System.out.print("la reponse : "+ reponseCorrect +" ");
-
+                System.out.print("la reponse : "+ reponseCorrect +" ---");
             }
-            break;
-
-           // System.out.print("Test 2222 :" + reponseCorrect);
-
-
+            System.out.print("Apres le IF :" + reponseCorrect+"---");
 
         }
 
