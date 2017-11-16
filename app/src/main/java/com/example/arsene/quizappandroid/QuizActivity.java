@@ -169,6 +169,9 @@ public class QuizActivity extends AppCompatActivity {
         // à chaque fois qu'on passe à la question suivante
         numeroQuestionCourrante++;
 
+        // on affiche le numero question courante
+        progressionQuiz.setText("Question: "+numeroQuestionCourrante);
+
         // efface textView resultat
         resultatTxtView.setText(" ");
 
