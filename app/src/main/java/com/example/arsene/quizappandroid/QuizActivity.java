@@ -1,6 +1,7 @@
 package com.example.arsene.quizappandroid;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ public class QuizActivity extends AppCompatActivity {
     TextView progressionQuiz;
     TextView questionTxtView;
     TextView resultatTxtView;
+    TextView nomJoeur;
     TableLayout buttonTableLayout;
 
     // Les arraylists questions
@@ -84,12 +86,16 @@ public class QuizActivity extends AppCompatActivity {
         questionTxtView = (TextView) findViewById(R.id.questionQuiz);
         resultatTxtView = (TextView) findViewById(R.id.resultatQuiz);
         buttonTableLayout = (TableLayout) findViewById(R.id.buttonTableLayout);
+        nomJoeur=(TextView) findViewById(R.id.tvNomJoeur);
 
         categorieSelectionnee = "synonyme";
         questionsQuiz =new ArrayList<>();
         questionsSynonmes = TestManagerQuestion.getAll();
         lesReponses = TestManagerReponse.getAll();
         lesChoix = TestManagerChoix.getAll();
+
+        Intent intent =getIntent();
+        nomJoeur.setText(intent.getStringExtra("edPrenom"));
 
         iniQuiz();
 

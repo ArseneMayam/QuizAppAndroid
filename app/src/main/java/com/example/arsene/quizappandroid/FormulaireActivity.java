@@ -30,7 +30,9 @@ public class FormulaireActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                Intent intent = new Intent(ctx,CategorieActivity.class );
-                 startActivity(intent);
+               intent.putExtra("edPrenom",ed1.getText().toString());
+               intent.putExtra("edNom",ed2.getText().toString());
+               startActivity(intent);
             }
         });
 
