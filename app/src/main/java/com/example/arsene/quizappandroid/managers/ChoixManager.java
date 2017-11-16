@@ -30,7 +30,6 @@ public class ChoixManager {
             Choix unChoix = new Choix(id,choix);
             retour.add(unChoix);
         }
-
         return retour;
     }
 
@@ -69,7 +68,6 @@ public class ChoixManager {
             Choix unChoix = new Choix(id,choix);
             retour.add(unChoix);
         }
-
         return retour;
     }
 
