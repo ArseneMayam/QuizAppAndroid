@@ -25,6 +25,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:background="@color/backgrnd1"
             android:id="@+id/timerQuiz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,6 +36,7 @@
             android:textSize="@dimen/text_size" />
 
         <TextView
+            android:background="@color/backgrnd1"
             android:id="@+id/progressionQuiz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,6 +53,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:background="@color/backgrnd1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="@dimen/text_size"
@@ -64,10 +67,11 @@
 
     <!-- Où les bouttons de choix seront crées dynamiquement-->
     <TableLayout
-        android:layout_marginTop="@dimen/layoutMarginTop"
+        android:background="@color/backgrnd"
         android:id="@+id/buttonTableLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="@dimen/layoutMarginTop"
         android:layout_weight="1"
         android:stretchColumns="0,1,2">
 
@@ -75,23 +79,23 @@
             android:id="@+id/tableRow0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            ></TableRow>
+            android:orientation="horizontal"></TableRow>
+
         <TableRow
             android:id="@+id/tableRow1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            ></TableRow>
+            android:orientation="horizontal"></TableRow>
+
         <TableRow
             android:id="@+id/tableRow2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            ></TableRow>
+            android:orientation="horizontal"></TableRow>
     </TableLayout>
 
     <TextView
+        android:background="@color/backgrnd1"
         android:id="@+id/resultatQuiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -100,4 +104,12 @@
         android:gravity="center"
         android:layout_marginBottom="@dimen/layoutMarginBottom"
         android:textColor="@color/textColor"/>
+    <TextView
+        android:background="@color/backgrnd"
+        android:id="@+id/scoreTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/score"
+        android:gravity="center"
+        android:textSize="25sp"/>
 </LinearLayout>
