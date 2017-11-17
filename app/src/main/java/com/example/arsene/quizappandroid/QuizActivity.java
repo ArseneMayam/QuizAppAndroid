@@ -1,6 +1,7 @@
 package com.example.arsene.quizappandroid;
 
 import android.content.Context;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -65,6 +66,8 @@ public class QuizActivity extends AppCompatActivity {
     Random random; // nb aléatoire
     Handler handler;
 
+    // le timer
+    CountDown leTimer;
 
 
 
@@ -136,6 +139,8 @@ public class QuizActivity extends AppCompatActivity {
 
         //reponseCorrect  = " ";
 
+        leTimer = new CountDown(20000,1000);
+        leTimer.start();
 
         if (laQuestion == null){
             laQuestion =questionsQuiz.get(0);
@@ -256,12 +261,33 @@ public class QuizActivity extends AppCompatActivity {
         },1000); // passe à la question suivante après 1 sec
 
 
+    }
 
 
 
+    // classe qui herite de countdown timer
+    class CountDown extends CountDownTimer{
 
+
+        public CountDown(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+
+        @Override
+        public void onTick(long l) {
+            timerQuiz.setText(" "+l/1000);
+
+
+        }
+
+        @Override
+        public void onFinish() {
+
+            chargerQuestionSuivante();
+        }
 
     }
 
 
 }
+
