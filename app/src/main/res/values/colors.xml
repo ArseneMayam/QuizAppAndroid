@@ -9,4 +9,5 @@
     <color name="backgrnd">#ffa07a</color>
     <color name="backgrnd1">#fa8072</color>
     <color name="backgrnd3">#e9967a</color>
+    <color name="noir">#99000000</color>
 </resources>

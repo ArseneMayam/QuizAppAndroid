@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.example.arsene.quizappandroid.QuizActivity"
     android:orientation="vertical"
-    android:id="@+id/quizLayout">
+    android:id="@+id/quizLayout"
+    android:background="@drawable/img_question"
+    >
 
 
     <TextView
@@ -14,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="28dp"
+        android:textColor="@android:color/holo_blue_dark"
         android:text="" />
 
     <LinearLayout
@@ -25,25 +28,25 @@
         android:orientation="horizontal">
 
         <TextView
-            android:background="@color/backgrnd1"
+            android:background="@color/noir"
             android:id="@+id/timerQuiz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:text="@string/timer"
-            android:textColor="@color/textColor"
+            android:textColor="@android:color/holo_blue_dark"
             android:textSize="@dimen/text_size" />
 
         <TextView
-            android:background="@color/backgrnd1"
+            android:background="@color/noir"
             android:id="@+id/progressionQuiz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="end"
             android:text="@string/progressionQuiz"
-            android:textColor="@color/textColor"
+            android:textColor="@android:color/holo_blue_dark"
             android:textSize="@dimen/text_size" />
     </LinearLayout>
 
@@ -53,7 +56,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:background="@color/backgrnd1"
+            android:background="@color/noir"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="@dimen/text_size"
@@ -62,12 +65,13 @@
             android:layout_marginTop="@dimen/textViewQuestionMarginTop"
             android:gravity="center_horizontal"
             android:id="@+id/questionQuiz"
-            android:textColor="@color/textColor"/>
+            android:textColor="@android:color/holo_blue_dark"
+            ></TextView>
     </LinearLayout>
 
     <!-- Où les bouttons de choix seront crées dynamiquement-->
     <TableLayout
-        android:background="@color/backgrnd"
+        android:background="@color/noir"
         android:id="@+id/buttonTableLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -95,7 +99,7 @@
     </TableLayout>
 
     <TextView
-        android:background="@color/backgrnd1"
+        android:background="@color/noir"
         android:id="@+id/resultatQuiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -103,13 +107,14 @@
         android:text="@string/resultat"
         android:gravity="center"
         android:layout_marginBottom="@dimen/layoutMarginBottom"
-        android:textColor="@color/textColor"/>
+        android:textColor="@android:color/holo_blue_dark"></TextView>
     <TextView
-        android:background="@color/backgrnd"
+        android:background="@color/noir"
         android:id="@+id/scoreTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/score"
         android:gravity="center"
+        android:textColor="@android:color/holo_blue_dark"
         android:textSize="25sp"/>
 </LinearLayout>
