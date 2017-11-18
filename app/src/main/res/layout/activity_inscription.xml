@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.arsene.quizappandroid.InscriptionActivity"
+    >
+
+    <TextView
+        android:id="@+id/tvPrenomInscrip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/edPrenomInscrip"
+        android:layout_marginEnd="26dp"
+        android:layout_marginRight="26dp"
+        android:layout_toLeftOf="@+id/edNomInscrip"
+        android:layout_toStartOf="@+id/edNomInscrip"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="26sp"
+        android:text="Prenom" />
+
+    <EditText
+        android:id="@+id/edPrenomInscrip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        android:layout_marginTop="102dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/holo_blue_dark"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        />
+
+    <TextView
+        android:id="@+id/tvNomInscrip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvPrenomInscrip"
+        android:layout_alignStart="@+id/tvPrenomInscrip"
+        android:layout_centerVertical="true"
+        android:text="Nom"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="26sp" />
+
+    <EditText
+        android:id="@+id/edNomInscrip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvNomInscrip"
+        android:layout_alignLeft="@+id/edPrenomInscrip"
+        android:layout_alignStart="@+id/edPrenomInscrip"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/holo_blue_dark" />
+
+    <TextView
+        android:id="@+id/tvPwInscrip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnContinuerInscrip"
+        android:layout_alignLeft="@+id/tvNomInscrip"
+        android:layout_alignStart="@+id/tvNomInscrip"
+        android:layout_marginBottom="40dp"
+        android:text="Mot de passe"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="26sp" />
+
+    <EditText
+        android:id="@+id/edPwInscrip"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvPwInscrip"
+        android:layout_alignEnd="@+id/edNomInscrip"
+        android:layout_alignRight="@+id/edNomInscrip"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/holo_blue_dark" />
+
+
+    <Button
+        android:id="@+id/btnContinuerInscrip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="64dp"
+        android:background="@android:color/black"
+        android:text="Continuer"
+        android:textColor="@android:color/holo_blue_dark" />
+
+
+</RelativeLayout>
