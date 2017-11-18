@@ -49,7 +49,7 @@ public final class ConstDB {
     }
 
     public static final class utilisateur{
-        public static final String nomTable ="reponse";
+        public static final String nomTable ="utilisateur";
 
         public static final String id = "id";
         public static final String prenom = "prenom";

@@ -37,7 +37,7 @@ public class TestManagerQuestion {
 
     public static ArrayList<Question> getAll(){
         if(listeQuestion == null){
-            init();;
+            init();
         }
         return listeQuestion;
     }

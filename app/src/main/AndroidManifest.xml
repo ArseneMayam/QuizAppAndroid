@@ -10,20 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-        <activity android:name=".QuizActivity">
+        <activity android:name=".QuizActivity"></activity>
+        <activity android:name=".Accueil">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Accueil">
-
-        </activity>
         <activity android:name=".CategorieActivity" />
         <activity android:name=".FormulaireActivity" />
         <activity android:name=".ChoixActivity" />
-        <activity android:name=".InscriptionActivity"></activity>
+        <activity android:name=".InscriptionActivity" />
+        <activity android:name=".Quiz_Checkbox_Activity"></activity>
     </application>
 
 </manifest>

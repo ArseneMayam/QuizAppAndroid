@@ -20,11 +20,7 @@ public class ConnexionDB {
     public static SQLiteDatabase getBd(Context ctx){
         GestionBD gbd = new GestionBD(ctx, ConstDB.nomBd,null,versionBD);
 
-        try{
-            gbd.updateDataBase();
-        }catch (IOException e){
-            throw new Error("update non effectue");
-        }
+
 
         try{
             bd = gbd.getWritableDatabase();

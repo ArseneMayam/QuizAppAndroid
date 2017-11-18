@@ -14,5 +14,7 @@ public class TestListView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_list_view);
         ctx = this;
+
+
     }
 }
