@@ -14,17 +14,25 @@
 
         </activity>
         <activity android:name=".Accueil">
+
         </activity>
         <activity android:name=".CategorieActivity" />
         <activity android:name=".FormulaireActivity" />
         <activity android:name=".ChoixActivity" />
         <activity android:name=".InscriptionActivity" />
-        <activity android:name=".Quiz_Checkbox_Activity">
+        <!-- <activity android:name=".InscriptionActivity" /> -->
+        <activity android:name=".Quiz_Checkbox_Activity" />
+        <activity android:name=".TestListView" />
+        <activity android:name=".TypeQuiz" />
+        <activity android:name=".ResetQuiz" />
+        <activity android:name=".ProfilActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
         </activity>
     </application>
 
