@@ -1,11 +1,13 @@
 package com.example.arsene.quizappandroid;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
@@ -18,6 +20,8 @@ import com.example.arsene.quizappandroid.TestManagers.TestManagerReponse;
 import com.example.arsene.quizappandroid.entities.Choix;
 import com.example.arsene.quizappandroid.entities.Question;
 import com.example.arsene.quizappandroid.entities.Reponse;
+import com.example.arsene.quizappandroid.managers.QuestionManager;
+import com.example.arsene.quizappandroid.managers.ReponseManager;
 
 
 import java.util.ArrayList;
@@ -97,8 +101,10 @@ public class QuizActivity extends AppCompatActivity {
 
         categorieSelectionnee = "synonyme";
         questionsQuiz =new ArrayList<>();
-        questionsSynonmes = TestManagerQuestion.getAll();
-        lesReponses = TestManagerReponse.getAll();
+        questionsSynonmes = QuestionManager.questionsSynonymes(ctx);
+        questionsAntonymes = QuestionManager.questionsAntonymes(ctx);
+        questionsAdverbes = QuestionManager.questionsAdverbes(ctx);
+        lesReponses = ReponseManager.getAll(ctx);
         lesChoix = TestManagerChoix.getAll();
 
         Intent intent =getIntent();
@@ -113,8 +119,6 @@ public class QuizActivity extends AppCompatActivity {
         // initialise progression quiz
         numeroQuestionCourrante = 0;
 
-
-
         // en fonction de la catégorie selectionnée on initialise arraylist questionQuiz
         switch (categorieSelectionnee){
 
@@ -126,10 +130,16 @@ public class QuizActivity extends AppCompatActivity {
 
             break;
 
-            case "antonyme":;
+            case "antonyme":
+                for (Question question : questionsAntonymes){
+                    questionsQuiz.add(question);
+                }
            break;
 
-           case "adverbe":;
+           case "adverbe":
+               for(Question question : questionsAdverbes){
+                   questionsQuiz.add(question);
+               }
             break;
 
         }
@@ -143,19 +153,48 @@ public class QuizActivity extends AppCompatActivity {
     // methode pour passer à la question suivante
     private void chargerQuestionSuivante(){
 
-        //reponseCorrect  = " ";
 
         leTimer = new CountDown(20000,1000);
-        leTimer.start();
+       leTimer.start();
+
+        // à chaque fois qu'on passe à la question suivante
+        numeroQuestionCourrante++;
+
+        // Arrivée à la dernière question on affiche un alertdialog
+        if(numeroQuestionCourrante == 20){
+            leTimer.cancel();
+            leTimer = null;
+           // questionsQuiz = null;
+
+           System.out.print("timer stopped");
+            Intent intent = new Intent();
+            intent.setClass(ctx,ResetQuiz.class);
+            startActivity(intent);
+
+
+
+
+
+
+        }
+
+        //reponseCorrect  = " ";
 
         if (laQuestion == null){
             laQuestion =questionsQuiz.get(0);
 
-
-        }else {
-            questionsQuiz.remove(0);
-            laQuestion = questionsQuiz.get(0);
         }
+        else if (!(questionsQuiz.isEmpty()) && questionsQuiz != null && questionsQuiz.size() !=0){ // si l'arraylist n'est pas vide
+            questionsQuiz.remove(0);
+            try {
+                laQuestion = questionsQuiz.get(0);
+            }catch (IndexOutOfBoundsException e){
+
+                e.printStackTrace();
+
+            }
+        }
+
         // get id de la question
         idQuestion = laQuestion.getId();
 
@@ -166,19 +205,18 @@ public class QuizActivity extends AppCompatActivity {
 
         // get la reponse correct
         for (Reponse reponse : lesReponses){
+
             System.out.print("---DANS LA BOUCLE REPONSE ---");
 
             if(reponse.getId() == idQuestion){
                 reponseCorrect = reponse.getReponse();
-                System.out.print("la reponse : "+ reponseCorrect +" ---");
+                System.out.print("la reponse : "+ reponseCorrect +" //---");
             }
-            System.out.print("Apres le IF :" + reponseCorrect+"---");
+           System.out.print("Apres le IF :" + reponseCorrect+"---");
 
         }
 
 
-        // à chaque fois qu'on passe à la question suivante
-        numeroQuestionCourrante++;
 
         // on affiche le numero question courante
         progressionQuiz.setText("Question: "+numeroQuestionCourrante);
@@ -250,13 +288,14 @@ public class QuizActivity extends AppCompatActivity {
             scoreTextView.setText(nbReponsesCorrect+" / 20");
             scoreTextView.setTextColor(getResources().getColor(R.color.reponseCorrect));
 
-
-
         }
         else {
             resultatTxtView.setText("Incorrect !");
             resultatTxtView.setTextColor(getResources().getColor(R.color.reponseIncorrect));
         }
+
+
+
         // on passe à la question suivante
 
         handler.postDelayed(new Runnable() {
@@ -266,14 +305,12 @@ public class QuizActivity extends AppCompatActivity {
             }
         },1000); // passe à la question suivante après 1 sec
 
-
     }
 
 
 
     // classe qui herite de countdown timer
     class CountDown extends CountDownTimer{
-
 
         public CountDown(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
@@ -283,17 +320,31 @@ public class QuizActivity extends AppCompatActivity {
         public void onTick(long l) {
             timerQuiz.setText(" "+l/1000);
 
+            if((l/1000)==1 && !(questionsQuiz.isEmpty()) && questionsQuiz != null && questionsQuiz.size() !=0){
+                this.cancel();
+                this.onFinish();
+
+            }
+
+            if ((l/1000) ==1) {
+                chargerQuestionSuivante();
+            }
 
         }
 
         @Override
         public void onFinish() {
-
-            chargerQuestionSuivante();
+               // chargerQuestionSuivante();
         }
 
     }
 
 
+    @Override
+    protected void onStop() {
+
+        Log.e("stop","stop");
+        super.onStop();
+    }
 }
 

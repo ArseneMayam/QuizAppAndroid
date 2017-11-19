@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.arsene.quizappandroid.ResetQuiz"
+    android:background="@drawable/resetquiz">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/noir"
+        android:gravity="center"
+        android:text="@string/nouvellePartie"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="@dimen/text_size"
+        android:id="@+id/textView" />
+
+    <Button
+        android:id="@+id/bttnReset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="101dp"
+        android:background="@color/noir"
+        android:gravity="center"
+        android:text="@string/reset"
+        android:textSize="@dimen/text_size"
+        android:textColor="@android:color/holo_blue_dark"/>
+
+    <Button
+        android:id="@+id/quitter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profil"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp"
+        android:background="@color/noir"
+        android:text="@string/quitter"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="@dimen/text_size" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:background="@color/noir"
+        android:gravity="center"
+        android:text="@string/profil"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="@dimen/text_size"
+        android:id="@+id/profil" />
+
+</RelativeLayout>
