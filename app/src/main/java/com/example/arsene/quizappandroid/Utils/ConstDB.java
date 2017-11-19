@@ -18,7 +18,7 @@ public final class ConstDB {
         public static final String nomTable ="choix";
 
         public static final String id = "id";
-        public static final String choix="id";
+        public static final String choix="choix";
     }
 
     public static final class question{

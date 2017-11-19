@@ -22,6 +22,7 @@ import com.example.arsene.quizappandroid.entities.Question;
 import com.example.arsene.quizappandroid.entities.Reponse;
 import com.example.arsene.quizappandroid.managers.QuestionManager;
 import com.example.arsene.quizappandroid.managers.ReponseManager;
+import com.example.arsene.quizappandroid.managers.ReponseManager;
 
 
 import java.util.ArrayList;
