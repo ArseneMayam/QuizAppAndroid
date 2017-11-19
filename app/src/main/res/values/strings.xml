@@ -8,4 +8,10 @@
     <string name="categorie">Catégorie</string>
     <string name="quitter">Quitter</string>
     <string name="score">Score :</string>
+    <string name="reponseUnique">Réponse Unique</string>
+    <string name="reponseMultiple">Réponse Multiple</string>
+    <string name="nouvellePartie">Une Nouvelle Partie ?</string>
+    <string name="reset">Reset</string>
+    <string name="profil">Votre Profil</string>
+
 </resources>

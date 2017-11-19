@@ -28,7 +28,7 @@ public class CategorieActivity extends AppCompatActivity {
         btnCategorie1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ctx,ChoixActivity.class );
+                Intent intent = new Intent(ctx,TypeQuiz.class );
                 intent.putExtra("categorie","synonyme");
                 startActivity(intent);
             }
@@ -37,7 +37,7 @@ public class CategorieActivity extends AppCompatActivity {
         btnCategorie2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ctx,ChoixActivity.class );
+                Intent intent = new Intent(ctx,TypeQuiz.class );
                 intent.putExtra("categorie","antonyme");
                 startActivity(intent);
             }
@@ -46,7 +46,7 @@ public class CategorieActivity extends AppCompatActivity {
         btnCategorie3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ctx,ChoixActivity.class );
+                Intent intent = new Intent(ctx,TypeQuiz.class );
                 intent.putExtra("categorie","adverbe");
                 startActivity(intent);
             }
