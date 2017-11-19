@@ -66,6 +66,7 @@ public class QuizActivity extends AppCompatActivity {
 
     String categorieSelectionnee;  // catégorie selectionné par l'utilisateur
     String reponseCorrect; // la reponse correct
+    String choixReponses;
     Question laQuestion;
 
 
@@ -84,7 +85,7 @@ public class QuizActivity extends AppCompatActivity {
         ctx = this;
         idChoixBttn = 156;
         nbReponsesCorrect = 0;
-        nombreLigneButton = 2;
+
         random = new Random();
         laQuestion = null;
         handler = new Handler();
@@ -99,7 +100,7 @@ public class QuizActivity extends AppCompatActivity {
         nomJoeur=(TextView) findViewById(R.id.tvNomJoeur);
         scoreTextView = (TextView) findViewById(R.id.scoreTextView);
 
-        categorieSelectionnee = "synonyme";
+
         questionsQuiz =new ArrayList<>();
         questionsSynonmes = QuestionManager.questionsSynonymes(ctx);
         questionsAntonymes = QuestionManager.questionsAntonymes(ctx);
@@ -107,9 +108,30 @@ public class QuizActivity extends AppCompatActivity {
         lesReponses = ReponseManager.getAll(ctx);
         lesChoix = TestManagerChoix.getAll();
 
+        categorieSelectionnee = "synonyme"; // catégorie sélectionnée
+
+
+        // le nombre de buttons affichés en fonction du choix de l'utilisateur
+        choixReponses = getIntent().getStringExtra("choix");
+        switch (choixReponses){
+            case "choix3":
+                nombreLigneButton = 1;
+                break;
+            case "choix6":
+                nombreLigneButton = 2;
+                break;
+            case "choix9":
+                nombreLigneButton = 3;
+                break;
+        }
+
+
+
+
         Intent intent =getIntent();
         nomJoeur.setText(intent.getStringExtra("edPrenom"));
 
+        // initialise le quiz
         iniQuiz();
 
     }
@@ -170,11 +192,6 @@ public class QuizActivity extends AppCompatActivity {
             Intent intent = new Intent();
             intent.setClass(ctx,ResetQuiz.class);
             startActivity(intent);
-
-
-
-
-
 
         }
 

@@ -12,6 +12,8 @@
     <string name="reponseMultiple">Réponse Multiple</string>
     <string name="nouvellePartie">Une Nouvelle Partie ?</string>
     <string name="reset">Reset</string>
-    <string name="profil">Votre Profil</string>
+    <string name="profil">Votre Profile</string>
+    <string name="profilScore">Score</string>
+    <string name="profilAffichage">Profile</string>
 
 </resources>
