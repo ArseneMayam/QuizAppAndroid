@@ -29,6 +29,7 @@ public class CategorieActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ctx,TypeQuiz.class );
+                //intent.putExtra("categorie","synonyme");
                 intent.putExtra("categorie","synonyme");
                 startActivity(intent);
             }
@@ -38,6 +39,8 @@ public class CategorieActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ctx,TypeQuiz.class );
+               // intent.putExtra("categorie","antonyme");
+                //intent.putExtra("categorie","antonyme");
                 intent.putExtra("categorie","antonyme");
                 startActivity(intent);
             }
@@ -48,6 +51,7 @@ public class CategorieActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ctx,TypeQuiz.class );
                 intent.putExtra("categorie","adverbe");
+
                 startActivity(intent);
             }
         });
@@ -59,8 +63,6 @@ public class CategorieActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-
-
+        
     }
 }

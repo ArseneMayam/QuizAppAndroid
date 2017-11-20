@@ -12,17 +12,23 @@ public class TypeQuiz extends AppCompatActivity {
     Button reponseUnique;
     Button reponseMultiple;
 
+    String extra;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_type_quiz);
         ctx = this;
 
+        extra = getIntent().getStringExtra("categorie");
+
         reponseUnique =(Button) findViewById(R.id.reponseUnique);
         reponseUnique.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
+
+                intent.putExtra("categorie",extra);
                 intent.setClass(ctx,ChoixActivity.class);
                 startActivity(intent);
             }

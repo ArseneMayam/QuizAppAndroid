@@ -12,12 +12,17 @@ public class ChoixActivity extends AppCompatActivity {
 
     Button choix1,choix2,choix3;
     Context ctx;
+    String extra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choix);
         ctx=this;
+
+       // categorie = getIntent().getStringExtra("categorie");
+      //  System.out.println(categorie);
+        extra = getIntent().getStringExtra("categorie");
 
         choix1=(Button) findViewById(R.id.btn3choix);
         choix2=(Button) findViewById(R.id.btn6choix);
@@ -28,6 +33,7 @@ public class ChoixActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ctx,QuizActivity.class );
                 intent.putExtra("choix","choix3");
+                intent.putExtra("categorie",extra);
                 startActivity(intent);
             }
         });
@@ -37,6 +43,7 @@ public class ChoixActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ctx,QuizActivity.class );
                 intent.putExtra("choix","choix6");
+                intent.putExtra("categorie",extra);
                 startActivity(intent);
             }
         });
@@ -46,6 +53,7 @@ public class ChoixActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ctx,QuizActivity.class );
                 intent.putExtra("choix","choix9");
+                intent.putExtra("categorie",extra);
                 startActivity(intent);
             }
         });

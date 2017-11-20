@@ -78,7 +78,6 @@ public class QuizActivity extends AppCompatActivity {
     CountDown leTimer;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,7 +108,7 @@ public class QuizActivity extends AppCompatActivity {
         lesReponses = ReponseManager.getAll(ctx);
         lesChoix = TestManagerChoix.getAll();
 
-        categorieSelectionnee = "synonyme"; // catégorie sélectionnée
+        categorieSelectionnee = getIntent().getStringExtra("categorie"); // catégorie sélectionnée
 
 
         // le nombre de buttons affichés en fonction du choix de l'utilisateur
