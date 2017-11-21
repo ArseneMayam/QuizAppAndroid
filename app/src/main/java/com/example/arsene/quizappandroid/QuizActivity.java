@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -20,6 +22,7 @@ import com.example.arsene.quizappandroid.TestManagers.TestManagerReponse;
 import com.example.arsene.quizappandroid.entities.Choix;
 import com.example.arsene.quizappandroid.entities.Question;
 import com.example.arsene.quizappandroid.entities.Reponse;
+import com.example.arsene.quizappandroid.managers.ChoixManager;
 import com.example.arsene.quizappandroid.managers.QuestionManager;
 import com.example.arsene.quizappandroid.managers.ReponseManager;
 import com.example.arsene.quizappandroid.managers.ReponseManager;
@@ -76,6 +79,7 @@ public class QuizActivity extends AppCompatActivity {
 
     // le timer
     CountDown leTimer;
+    Animation animation;
 
 
     @Override
@@ -90,6 +94,10 @@ public class QuizActivity extends AppCompatActivity {
         laQuestion = null;
         handler = new Handler();
         reponseCorrect =" ";
+
+        // animation
+        animation = AnimationUtils.loadAnimation(ctx,R.anim.shakeanimation);
+        animation.setRepeatCount(5);
 
         // Les réferences aux composants
         timerQuiz = (TextView) findViewById(R.id.timerQuiz);
@@ -291,6 +299,16 @@ public class QuizActivity extends AppCompatActivity {
         return (TableRow) buttonTableLayout.getChildAt(row);
     }
 
+    //disable les bttns
+    private void disableBttn(){
+        for (int row = 0; row < buttonTableLayout.getChildCount(); row++){
+            TableRow tableRow =(TableRow) buttonTableLayout.getChildAt(row);
+            for (int i =0; i < tableRow.getChildCount();i++){
+                tableRow.getChildAt(i).setEnabled(false);
+            }
+        }
+    }
+
     // methode appellée lorsque utilisateur clique un bttn choix
     private void submitButton(Button button){
 
@@ -305,10 +323,12 @@ public class QuizActivity extends AppCompatActivity {
             scoreTextView.setText(nbReponsesCorrect+" / 20");
             scoreTextView.setTextColor(getResources().getColor(R.color.reponseCorrect));
 
+            disableBttn();
         }
         else {
             resultatTxtView.setText("Incorrect !");
             resultatTxtView.setTextColor(getResources().getColor(R.color.reponseIncorrect));
+            questionTxtView.startAnimation(animation);
         }
 
 
