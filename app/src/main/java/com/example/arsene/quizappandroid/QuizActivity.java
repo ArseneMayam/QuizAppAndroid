@@ -170,6 +170,8 @@ public class QuizActivity extends AppCompatActivity {
                for(Question question : questionsAdverbes){
                    questionsQuiz.add(question);
                }
+               lesChoix = TestManagerChoix.getAllAdverbes();
+
             break;
 
         }

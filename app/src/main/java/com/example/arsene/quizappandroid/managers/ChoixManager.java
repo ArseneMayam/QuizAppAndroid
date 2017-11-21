@@ -38,7 +38,7 @@ public class ChoixManager {
     public static ArrayList<Choix> getChoixExceptAdverbes(Context ctx){
         ArrayList<Choix> retour = new ArrayList<>();
 
-        String queryGetChoixSynAnt="select * from "+ ConstDB.choix.nomTable+" where id<80;";
+        String queryGetChoixSynAnt="select * from "+ ConstDB.choix.nomTable+" where id < 60;";
 
         SQLiteDatabase bd = ConnexionDB.getBd(ctx);
         Cursor c = bd.rawQuery(queryGetChoixSynAnt,null);
@@ -56,7 +56,7 @@ public class ChoixManager {
     // recupere tous les choix de la catégorie adverbes
     public static ArrayList<Choix> getChoixAdverbes(Context ctx){
         ArrayList<Choix> retour = new ArrayList<>();
-        String queryGetChoixAdverbe="select * from "+ ConstDB.choix.nomTable+" where id >= 80;";
+        String queryGetChoixAdverbe="select * from "+ ConstDB.choix.nomTable+" where id >= 170;";
 
         SQLiteDatabase bd = ConnexionDB.getBd(ctx);
         Cursor c = bd.rawQuery(queryGetChoixAdverbe,null);
