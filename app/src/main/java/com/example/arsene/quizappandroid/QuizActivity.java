@@ -191,7 +191,7 @@ public class QuizActivity extends AppCompatActivity {
         numeroQuestionCourrante++;
 
         // Arrivée à la dernière question on affiche un alertdialog
-        if(numeroQuestionCourrante == 20){
+     /*   if(numeroQuestionCourrante == 20){
             leTimer.cancel();
             leTimer = null;
            // questionsQuiz = null;
@@ -201,7 +201,7 @@ public class QuizActivity extends AppCompatActivity {
             intent.setClass(ctx,ResetQuiz.class);
             startActivity(intent);
 
-        }
+        }*/
 
         //reponseCorrect  = " ";
 
@@ -365,6 +365,18 @@ public class QuizActivity extends AppCompatActivity {
 
             if ((l/1000) ==1) {
                 chargerQuestionSuivante();
+            }
+            if(numeroQuestionCourrante ==20){
+                this.cancel();
+                //leTimer = null;
+                // questionsQuiz = null;
+
+                System.out.print("timer stopped");
+                Intent intent = new Intent();
+                intent.setClass(ctx,ResetQuiz.class);
+                startActivity(intent);
+
+
             }
 
         }

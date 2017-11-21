@@ -25,18 +25,20 @@ public class ResetQuiz extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(ctx, QuizActivity.class);
+                intent.setClass(ctx, CategorieActivity.class);
                 startActivity(intent);
             }
         });
 
 
 
-        profil = (Button) findViewById(R.id.bttnReset);
+        profil = (Button) findViewById(R.id.profil);
         profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
+                intent.setClass(ctx,ProfilActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -44,7 +46,8 @@ public class ResetQuiz extends AppCompatActivity {
         quitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
+                finish();
+                System.exit(0);
 
             }
         });
