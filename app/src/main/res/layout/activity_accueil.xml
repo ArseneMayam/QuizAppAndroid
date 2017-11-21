@@ -30,17 +30,30 @@
         android:text="Inscription"
         android:textColor="@android:color/holo_blue_dark" />
 
+
     <Button
-        android:id="@+id/bttnQuitter"
+        android:id="@+id/btnJouerMtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/bttnCategorie"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="56dp"
+        android:background="@android:color/black"
+        android:text="Jouer maintenant !"
+        android:textColor="@android:color/holo_blue_dark" />
+
+
+    <Button
+        android:id="@+id/bttnQuitter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="36dp"
         android:background="@android:color/black"
         android:text="@string/quitter"
         android:textColor="@android:color/holo_blue_dark" />
-
 
 </RelativeLayout>

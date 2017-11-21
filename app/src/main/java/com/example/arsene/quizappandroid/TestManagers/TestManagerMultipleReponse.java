@@ -15,14 +15,14 @@ public class TestManagerMultipleReponse {
         listeReponse = new ArrayList<>();
 
         listeReponse.add(new Reponse(1,1,"habilete"));
-        listeReponse.add(new Reponse(2,3,"compagnon"));
-        listeReponse.add(new Reponse(3,4,"Complice"));
-        listeReponse.add(new Reponse(4,5,"venue"));
-        listeReponse.add(new Reponse(5,6,"devouement"));
-        listeReponse.add(new Reponse(6,7,"frontiere"));
-        listeReponse.add(new Reponse(7,8,"vacarme"));
-        listeReponse.add(new Reponse(8,9,"brouhaha"));
-        listeReponse.add(new Reponse(9,10,"villegiature"));
+        listeReponse.add(new Reponse(2,1,"compagnon"));
+        listeReponse.add(new Reponse(3,2,"Complice"));
+        listeReponse.add(new Reponse(4,2,"venue"));
+        listeReponse.add(new Reponse(5,2,"devouement"));
+        listeReponse.add(new Reponse(6,3,"frontiere"));
+        listeReponse.add(new Reponse(7,7,"vacarme"));
+        listeReponse.add(new Reponse(8,8,"brouhaha"));
+        listeReponse.add(new Reponse(9,9,"villegiature"));
         listeReponse.add(new Reponse(10,11,"raison"));
         listeReponse.add(new Reponse(11,12,"manoir"));
         listeReponse.add(new Reponse(12,13,"courroux"));

@@ -5,19 +5,23 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.arsene.quizappandroid.TestManagers.TestManagerChoix;
+import com.example.arsene.quizappandroid.TestManagers.TestManagerMultipleReponse;
 import com.example.arsene.quizappandroid.TestManagers.TestManagerQuestion;
 import com.example.arsene.quizappandroid.TestManagers.TestManagerReponse;
 import com.example.arsene.quizappandroid.entities.Choix;
 import com.example.arsene.quizappandroid.entities.Question;
 import com.example.arsene.quizappandroid.entities.Reponse;
+import com.example.arsene.quizappandroid.managers.ReponseManager;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -46,6 +50,7 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
     // les arraylists de reponse
     ArrayList<Reponse> lesReponses;
     ArrayList<Reponse> reponsesAdverbes;
+    ArrayList<Reponse> reponseQuestionCourante;
 
     // arraylist de choix
     ArrayList<Choix> lesChoix;
@@ -87,6 +92,8 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
         laQuestion = null;
         handler = new Handler();
         reponseCorrect =" ";
+        reponseQuestionCourante= new ArrayList<>();
+
 
 
         //les 6 checkbox
@@ -158,6 +165,8 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
 
     private void changerQuestionSuivante(){
 
+       // reponseQuestionCourante=null;
+
         if (laQuestion==null){
             laQuestion =questionsQuiz.get(0);
         }else {
@@ -172,14 +181,26 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
         // affiche la question
         questionTxtView.setText(laQuestion.getQuestion());
 
+        int taille=reponseQuestionCourante.size();
+
+        System.out.print("AVANT"+reponseQuestionCourante.size());
+        Log.d("taille",""+taille);
+
         // get la reponse correct
         for (Reponse reponse : lesReponses){
 
-            if(reponse.getId() == idQuestion){
-                reponseCorrect = reponse.getReponse();
+            if(reponse.getId_question() == idQuestion){
+                reponseQuestionCourante.add(reponse);
+                System.out.print("PENDANT"+reponseQuestionCourante.size());
+                Log.d("taille",""+reponseQuestionCourante.size());
+
+                //reponseCorrect = reponse.getReponse();
             }
 
         }
+        System.out.print("APRES"+reponseQuestionCourante.size());
+        Log.d("taille",""+reponseQuestionCourante.size());
+
 
         // à chaque fois qu'on passe à la question suivante
         numeroQuestionCourrante++;
@@ -201,12 +222,11 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
             for (int column = 0; column < 3; column++){
                 final CheckBox lesCheckBox = (CheckBox) getLayoutInflater().inflate(R.layout.choix_checkbox,null);
 
-                // on get les choix
+
                 Choix unChoix = lesChoix.get((row*3)+column);
                 lesCheckBox.setText(unChoix.getChoix());
                 lesCheckBox.setId(idChoixCheckbox);
 
-/*
                 lesCheckBox.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -218,12 +238,43 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
 
                         }
                     }
-                });*/
+                });
 
                 btnQuiz.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        submitButton(lesCheckBox);
+                        //submitButton(lesCheckBox);
+
+                        if(lesCheckBox.getId()==idQuestion){
+                            nbReponsesCorrect++;
+
+                            // reponse correcte, on l'affiche dans le textView resultat
+                            String bonneReponse = lesCheckBox.getText().toString();
+                            resultatTxtView.setText("Correct !");
+                            resultatTxtView.setTextColor(getResources().getColor(R.color.reponseCorrect));
+                            scoreTextView.setText(nbReponsesCorrect+" / 20");
+                            scoreTextView.setTextColor(getResources().getColor(R.color.reponseCorrect));
+                            Toast.makeText(Quiz_Checkbox_Activity.this,"CORRECT",Toast.LENGTH_LONG).show();
+
+
+
+                        }
+                        else {
+                            resultatTxtView.setText("Incorrect !");
+                            resultatTxtView.setTextColor(getResources().getColor(R.color.reponseIncorrect));
+                            Toast.makeText(Quiz_Checkbox_Activity.this,"MAUVAIS",Toast.LENGTH_LONG).show();
+
+                        }
+                        // on passe à la question suivante
+
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                changerQuestionSuivante();
+                            }
+                        },1000); // passe à la question suivante après 1 sec
+
+
                     }
                 });
                 ligneCheckboxCourrant.addView(lesCheckBox);
@@ -231,21 +282,27 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
         }
 
 
-        int row = random.nextInt(nombreLigneCheckbox);
-        int column = random.nextInt(3);
-        TableRow randomTableRow = getTableRow(row);
-        ((CheckBox) randomTableRow.getChildAt(column)).setText(reponseCorrect);
-        ((CheckBox) randomTableRow.getChildAt(column)).setId(idQuestion);
+        for(Reponse reponse:reponseQuestionCourante){
+            // on get les choix
+            int row = random.nextInt(nombreLigneCheckbox);
+            int column = random.nextInt(3);
+            TableRow randomTableRow = getTableRow(row);
+            ((CheckBox) randomTableRow.getChildAt(column)).setText(reponse.getReponse());
+            ((CheckBox) randomTableRow.getChildAt(column)).setId(idQuestion);
 
+        }
 
     }
     private TableRow getTableRow(int row){
         return (TableRow) checkboxTableLayout2.getChildAt(row);
     }
+/*
     private void submitButton(CheckBox checkbox){
 
+       // if(lesCheckBox.isChecked()&&lesCheckBox.getId()==idQuestion) {
 
-        if(checkbox.getId() == idQuestion && checkbox.isChecked()){
+
+            if(checkbox.getId() == idQuestion){
             nbReponsesCorrect++;
 
             // reponse correcte, on l'affiche dans le textView resultat
@@ -273,6 +330,7 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
 
 
     }
+*/
 
 }
 

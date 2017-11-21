@@ -17,6 +17,7 @@ public class Accueil extends AppCompatActivity {
     Button bttnCommencer;
     Button bttnCategorie;
     Button bttnQuitter;
+    Button jouerMtn;
     // Intent pour la redirection
     Intent redirection;
 
@@ -39,6 +40,7 @@ public class Accueil extends AppCompatActivity {
         bttnCommencer = (Button) findViewById(R.id.bttnCommencer);
         bttnCategorie = (Button) findViewById(R.id.bttnCategorie);
         bttnQuitter = (Button) findViewById(R.id.bttnQuitter);
+        jouerMtn =(Button) findViewById(R.id.btnJouerMtn);
 
         // Ecoute sur les bouttons
         bttnCommencer.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +61,15 @@ public class Accueil extends AppCompatActivity {
 
                 startActivity(intent);
 
+            }
+        });
+
+        jouerMtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ctx, CategorieActivity.class);
+
+                startActivity(intent);
             }
         });
 

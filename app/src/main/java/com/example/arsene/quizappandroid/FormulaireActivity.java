@@ -47,7 +47,7 @@ public class FormulaireActivity extends AppCompatActivity {
                intent.putExtra("edNom",ed2.getText().toString());
                startActivity(intent);
                 }else{
-                    Toast.makeText(ctx, "Mauvais mot de passe ou nom/prenom", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ctx, "Mauvais mot de passe ou prenom/nom", Toast.LENGTH_SHORT).show();
                 }
             }
         });
