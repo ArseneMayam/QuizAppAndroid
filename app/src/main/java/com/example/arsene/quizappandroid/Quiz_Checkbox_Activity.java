@@ -19,8 +19,10 @@ import com.example.arsene.quizappandroid.TestManagers.TestManagerMultipleReponse
 import com.example.arsene.quizappandroid.TestManagers.TestManagerQuestion;
 import com.example.arsene.quizappandroid.TestManagers.TestManagerReponse;
 import com.example.arsene.quizappandroid.entities.Choix;
+import com.example.arsene.quizappandroid.entities.PlusieursReponses;
 import com.example.arsene.quizappandroid.entities.Question;
 import com.example.arsene.quizappandroid.entities.Reponse;
+import com.example.arsene.quizappandroid.managers.PlusieursReponsesManager;
 import com.example.arsene.quizappandroid.managers.QuestionManager;
 import com.example.arsene.quizappandroid.managers.ReponseManager;
 
@@ -49,9 +51,9 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
     ArrayList<Question> questionsAdverbes;
 
     // les arraylists de reponse
-    ArrayList<Reponse> lesReponses;
+    ArrayList<PlusieursReponses> lesReponses;
     ArrayList<Reponse> reponsesAdverbes;
-    ArrayList<Reponse> reponseQuestionCourante;
+    ArrayList<PlusieursReponses> reponseQuestionCourante;
 
     // arraylist de choix
     ArrayList<Choix> lesChoix;
@@ -127,7 +129,7 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
         questionsSynonmes = QuestionManager.questionsSynonymes(ctx);
         questionsAntonymes = QuestionManager.questionsAntonymes(ctx);
         questionsAdverbes = QuestionManager.questionsAdverbes(ctx);
-        lesReponses = ReponseManager.getAll(ctx);
+        lesReponses = PlusieursReponsesManager.getAll(ctx);
         lesChoix = TestManagerChoix.getAll();
 
 
@@ -202,7 +204,7 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
         Log.d("taille",""+taille);
 
         // get la reponse correct
-        for (Reponse reponse : lesReponses){
+        for (PlusieursReponses reponse : lesReponses){
 
             if(reponse.getId_question() == idQuestion){
                 reponseQuestionCourante.add(reponse);
@@ -262,7 +264,7 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
                     public void onClick(View view) {
                         //submitButton(lesCheckBox);
 
-                        if(lesCheckBox.getId()==idQuestion){
+                        if(lesCheckBox.isChecked()&&lesCheckBox.getId()==idQuestion){
                             nbReponsesCorrect++;
 
                             // reponse correcte, on l'affiche dans le textView resultat
@@ -299,7 +301,7 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
         }
 
 
-        for(Reponse reponse:reponseQuestionCourante){
+        for(PlusieursReponses reponse:reponseQuestionCourante){
             // on get les choix
             int row = random.nextInt(nombreLigneCheckbox);
             int column = random.nextInt(3);

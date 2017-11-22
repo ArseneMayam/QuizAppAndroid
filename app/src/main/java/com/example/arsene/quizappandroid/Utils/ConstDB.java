@@ -68,4 +68,14 @@ public final class ConstDB {
 
     }
 
+    public static final class plusieursreponses{
+
+        public static final String nomTable ="plusieursreponses";
+
+        public static final String id = "id";
+        public static final String id_question ="id_question";
+        public static final String reponse ="reponse";
+    }
+
+
 }
