@@ -33,7 +33,7 @@
         android:layout_marginTop="102dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="@android:color/black"
         android:backgroundTint="@android:color/black"
         />
 
@@ -41,10 +41,10 @@
         android:id="@+id/tvNomInscrip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/edPwInscrip"
         android:layout_alignLeft="@+id/tvPrenomInscrip"
         android:layout_alignStart="@+id/tvPrenomInscrip"
-        android:layout_marginBottom="64dp"
+        android:layout_below="@+id/tvPrenomInscrip"
+        android:layout_marginTop="64dp"
         android:text="Nom"
         android:textColor="@android:color/black"
         android:textSize="26sp" />

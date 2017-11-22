@@ -41,10 +41,10 @@
         android:id="@+id/tvNom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/edPw"
         android:layout_alignLeft="@+id/tvPrenom"
         android:layout_alignStart="@+id/tvPrenom"
-        android:layout_marginBottom="52dp"
+        android:layout_below="@+id/tvPrenom"
+        android:layout_marginTop="65dp"
         android:text="Nom"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="26sp" />
