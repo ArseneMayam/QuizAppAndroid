@@ -4,10 +4,11 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="textColor">#000</color>
-    <color name="reponseCorrect">#006400</color>
+    <color name="reponseCorrect">#5EFF33</color>
     <color name="reponseIncorrect">#FF00</color>
     <color name="backgrnd">#ffa07a</color>
     <color name="backgrnd1">#fa8072</color>
     <color name="backgrnd3">#e9967a</color>
     <color name="noir">#99000000</color>
+    <color name="bleuQuiz">#33DDFF</color>
 </resources>

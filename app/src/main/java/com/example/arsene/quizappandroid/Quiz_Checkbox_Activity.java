@@ -21,6 +21,7 @@ import com.example.arsene.quizappandroid.TestManagers.TestManagerReponse;
 import com.example.arsene.quizappandroid.entities.Choix;
 import com.example.arsene.quizappandroid.entities.Question;
 import com.example.arsene.quizappandroid.entities.Reponse;
+import com.example.arsene.quizappandroid.managers.QuestionManager;
 import com.example.arsene.quizappandroid.managers.ReponseManager;
 
 import java.util.ArrayList;
@@ -117,10 +118,18 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
 
 
         categorieSelectionnee = "synonyme";
+       // questionsQuiz =new ArrayList<>();
+        //questionsSynonmes = TestManagerQuestion.getAll();
+       // lesReponses = TestManagerReponse.getAll();
+        //lesChoix = TestManagerChoix.getAll();
+
         questionsQuiz =new ArrayList<>();
-        questionsSynonmes = TestManagerQuestion.getAll();
-        lesReponses = TestManagerReponse.getAll();
+        questionsSynonmes = QuestionManager.questionsSynonymes(ctx);
+        questionsAntonymes = QuestionManager.questionsAntonymes(ctx);
+        questionsAdverbes = QuestionManager.questionsAdverbes(ctx);
+        lesReponses = ReponseManager.getAll(ctx);
         lesChoix = TestManagerChoix.getAll();
+
 
         Intent intent =getIntent();
         nomJoeur.setText(intent.getStringExtra("edPrenom"));
@@ -149,10 +158,16 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
 
                 break;
 
-            case "antonyme":;
+            case "antonyme":
+                for (Question question : questionsAntonymes){
+                    questionsQuiz.add(question);
+                }
                 break;
 
-            case "adverbe":;
+            case "adverbe":
+                for(Question question : questionsAdverbes){
+                    questionsQuiz.add(question);
+                }
                 break;
 
         }
@@ -225,6 +240,8 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
 
                 Choix unChoix = lesChoix.get((row*3)+column);
                 lesCheckBox.setText(unChoix.getChoix());
+                lesCheckBox.setTextColor(getResources().getColor(R.color.bleuQuiz));
+                lesCheckBox.setTextSize(18);
                 lesCheckBox.setId(idChoixCheckbox);
 
                 lesCheckBox.setOnClickListener(new View.OnClickListener() {

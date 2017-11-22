@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.arsene.quizappandroid.InscriptionActivity"
+    android:background="@drawable/inscription_back"
     >
 
     <TextView
@@ -16,7 +17,7 @@
         android:layout_marginRight="26dp"
         android:layout_toLeftOf="@+id/edNomInscrip"
         android:layout_toStartOf="@+id/edNomInscrip"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="@android:color/black"
         android:textSize="26sp"
         android:text="Prenom" />
 
@@ -33,18 +34,19 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="@android:color/holo_blue_dark"
-        android:backgroundTint="@android:color/holo_blue_dark"
+        android:backgroundTint="@android:color/black"
         />
 
     <TextView
         android:id="@+id/tvNomInscrip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/edPwInscrip"
         android:layout_alignLeft="@+id/tvPrenomInscrip"
         android:layout_alignStart="@+id/tvPrenomInscrip"
-        android:layout_centerVertical="true"
+        android:layout_marginBottom="64dp"
         android:text="Nom"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="@android:color/black"
         android:textSize="26sp" />
 
     <EditText
@@ -54,10 +56,10 @@
         android:layout_alignBottom="@+id/tvNomInscrip"
         android:layout_alignLeft="@+id/edPrenomInscrip"
         android:layout_alignStart="@+id/edPrenomInscrip"
-        android:backgroundTint="@android:color/holo_blue_dark"
+        android:backgroundTint="@android:color/black"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textColor="@android:color/holo_blue_dark" />
+        android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/tvPwInscrip"
@@ -68,7 +70,7 @@
         android:layout_alignStart="@+id/tvNomInscrip"
         android:layout_marginBottom="40dp"
         android:text="Mot de passe"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="@android:color/black"
         android:textSize="26sp" />
 
     <EditText
@@ -78,10 +80,10 @@
         android:layout_alignBottom="@+id/tvPwInscrip"
         android:layout_alignEnd="@+id/edNomInscrip"
         android:layout_alignRight="@+id/edNomInscrip"
-        android:backgroundTint="@android:color/holo_blue_dark"
+        android:backgroundTint="@android:color/black"
         android:ems="10"
         android:inputType="textPassword"
-        android:textColor="@android:color/holo_blue_dark" />
+        android:textColor="@android:color/black" />
 
 
     <Button
