@@ -44,15 +44,5 @@
         android:text="9 choix de réponse"
         android:textColor="@android:color/holo_blue_dark" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/btn9choix"
-        android:layout_marginTop="40dp"
-        android:background="@android:color/black"
-        android:text="Commencer le Quiz !"
-        android:textColor="@android:color/holo_blue_dark" />
+
 </RelativeLayout>
