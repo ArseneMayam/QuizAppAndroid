@@ -24,9 +24,11 @@
         <activity android:name=".FormulaireActivity" />
         <activity android:name=".ChoixActivity" />
         <activity android:name=".InscriptionActivity" />
-        <activity android:name=".Quiz_Checkbox_Activity">
-
-        </activity>
+        <activity android:name=".Quiz_Checkbox_Activity"></activity>
+        <activity android:name=".TestListView" />
+        <activity android:name=".TypeQuiz" />
+        <activity android:name=".ResetQuiz" />
+        <activity android:name=".ProfilActivity"></activity>
     </application>
 
 </manifest>
