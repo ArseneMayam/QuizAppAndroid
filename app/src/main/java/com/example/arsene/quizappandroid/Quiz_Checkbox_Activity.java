@@ -158,6 +158,7 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
                     questionsQuiz.add(question);
                 }
 
+
                 break;
 
             case "antonyme":
@@ -171,6 +172,7 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
                     questionsQuiz.add(question);
                 }
                 break;
+
 
         }
 

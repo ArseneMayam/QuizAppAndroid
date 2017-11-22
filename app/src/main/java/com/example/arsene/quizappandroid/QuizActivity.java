@@ -3,6 +3,7 @@ package com.example.arsene.quizappandroid;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -135,17 +136,30 @@ public class QuizActivity extends AppCompatActivity {
 
 
 
-
-        Intent intent =getIntent();
-        nomJoeur.setText(intent.getStringExtra("edPrenom"));
+        //recupere le prenom du joueur et laffiche dans le textview
+        SharedPreferences sharedPref = getSharedPreferences("prenomJoueur",Context.MODE_PRIVATE);
+        String prenom =sharedPref.getString("prenom","");
+        nomJoeur.setText(prenom);
 
         // initialise le quiz
         iniQuiz();
 
+
+
     }
+
+
+ /*   public void sauvergarderInformation(View view){
+        SharedPreferences sharedPref =getSharedPreferences("infoJoueur",)
+    }*/
+
 
     // methode pour initialiser le quiz
     private void iniQuiz(){
+
+
+
+
         // initialise progression quiz
         numeroQuestionCourrante = 0;
 
@@ -324,6 +338,11 @@ public class QuizActivity extends AppCompatActivity {
             resultatTxtView.setTextColor(getResources().getColor(R.color.reponseCorrect));
             scoreTextView.setText(nbReponsesCorrect+" / 20");
             scoreTextView.setTextColor(getResources().getColor(R.color.reponseCorrect));
+
+            SharedPreferences sharedPref =getSharedPreferences("scoreJoueur",Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor=sharedPref.edit();
+            editor.putString("score",scoreTextView.getText().toString());
+            editor.apply();
 
             disableBttn();
         }

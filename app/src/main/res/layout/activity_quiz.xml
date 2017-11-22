@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="28dp"
-        android:textColor="#33DDFF"
+        android:textColor="#000"
         android:text="" />
 
     <LinearLayout

@@ -2,6 +2,7 @@ package com.example.arsene.quizappandroid;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +26,7 @@ public class FormulaireActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulaire);
 
+
         ctx=this;
         btnForm =(Button) findViewById(R.id.btnContinuer);
         ed1=(EditText) findViewById(R.id.edPrenom);
@@ -36,6 +38,11 @@ public class FormulaireActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Utilisateur utilisateur=null;
 
+                SharedPreferences sharedPref =getSharedPreferences("prenomJoueur",Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor=sharedPref.edit();
+                editor.putString("prenom",ed1.getText().toString());
+                editor.apply();
+
                 utilisateur= SeConnecterManager.getByLoginPwd(ctx,new Utilisateur(-1,
                                                                     ed1.getText().toString(),
                                                                     ed2.getText().toString(),
@@ -43,8 +50,8 @@ public class FormulaireActivity extends AppCompatActivity {
 
                 if (utilisateur != null) {
                Intent intent = new Intent(ctx,CategorieActivity.class );
-               intent.putExtra("edPrenom",ed1.getText().toString());
-               intent.putExtra("edNom",ed2.getText().toString());
+               intent.putExtra("prenom",ed1.getText().toString());
+               //intent.putExtra("edNom",ed2.getText().toString());
                startActivity(intent);
                 }else{
                     Toast.makeText(ctx, "Mauvais mot de passe ou prenom/nom", Toast.LENGTH_SHORT).show();
@@ -53,5 +60,14 @@ public class FormulaireActivity extends AppCompatActivity {
         });
 
 
+
+
     }
+
+
+
+
+
+
+
 }
