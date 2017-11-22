@@ -44,7 +44,5 @@ public class TypeQuiz extends AppCompatActivity {
             }
         });
 
-
-
     }
 }

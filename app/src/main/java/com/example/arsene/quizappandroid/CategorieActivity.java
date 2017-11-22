@@ -19,7 +19,6 @@ public class CategorieActivity extends AppCompatActivity {
         setContentView(R.layout.activity_categorie);
         ctx=this;
 
-
         btnRetour=(Button) findViewById(R.id.btnRetour);
         btnCategorie1=(Button) findViewById(R.id.btnSynonyme);
         btnCategorie2=(Button) findViewById(R.id.btnAntonyme);
@@ -55,8 +54,6 @@ public class CategorieActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
         btnRetour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

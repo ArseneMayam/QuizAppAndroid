@@ -20,8 +20,6 @@ public class ChoixActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choix);
         ctx=this;
 
-       // categorie = getIntent().getStringExtra("categorie");
-      //  System.out.println(categorie);
         extra = getIntent().getStringExtra("categorie");
 
         choix1=(Button) findViewById(R.id.btn3choix);
@@ -57,6 +55,5 @@ public class ChoixActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 }
