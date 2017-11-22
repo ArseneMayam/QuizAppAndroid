@@ -63,6 +63,6 @@ public class CategorieActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        
+
     }
 }

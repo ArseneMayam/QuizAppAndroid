@@ -170,6 +170,8 @@ public class QuizActivity extends AppCompatActivity {
                for(Question question : questionsAdverbes){
                    questionsQuiz.add(question);
                }
+               lesChoix = TestManagerChoix.getAllAdverbes();
+
             break;
 
         }
@@ -338,6 +340,7 @@ public class QuizActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                leTimer.cancel();
                 chargerQuestionSuivante();
             }
         },1000); // passe à la question suivante après 1 sec
