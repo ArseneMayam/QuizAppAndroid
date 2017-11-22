@@ -245,28 +245,12 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
                 lesCheckBox.setTextColor(getResources().getColor(R.color.bleuQuiz));
                 lesCheckBox.setTextSize(18);
                 lesCheckBox.setId(idChoixCheckbox);
-
-                lesCheckBox.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if(lesCheckBox.isChecked()&&lesCheckBox.getId()==idQuestion) {
-                            Toast.makeText(Quiz_Checkbox_Activity.this,"bonne reponse",Toast.LENGTH_LONG).show();
-                        }
-                        else{
-                            Toast.makeText(Quiz_Checkbox_Activity.this,"Dans le else",Toast.LENGTH_LONG).show();
-
-                        }
-                    }
-                });
-
-                ligneCheckboxCourrant.addView(lesCheckBox);
-
                 btnQuiz.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        //submitButton(lesCheckBox);
+                        //   submitButton(lesCheckBox);
 
-                        if(lesCheckBox.getId()==idQuestion){
+                        if(lesCheckBox.isChecked()&&lesCheckBox.getId()==idQuestion){
                             nbReponsesCorrect++;
 
                             // reponse correcte, on l'affiche dans le textView resultat
@@ -275,7 +259,7 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
                             resultatTxtView.setTextColor(getResources().getColor(R.color.reponseCorrect));
                             scoreTextView.setText(nbReponsesCorrect+" / 20");
                             scoreTextView.setTextColor(getResources().getColor(R.color.reponseCorrect));
-                            Toast.makeText(Quiz_Checkbox_Activity.this,"CORRECT",Toast.LENGTH_LONG).show();
+                           // Toast.makeText(Quiz_Checkbox_Activity.this,"CORRECT",Toast.LENGTH_LONG).show();
 
 
 
@@ -283,7 +267,7 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
                         else {
                             resultatTxtView.setText("Incorrect !");
                             resultatTxtView.setTextColor(getResources().getColor(R.color.reponseIncorrect));
-                            Toast.makeText(Quiz_Checkbox_Activity.this,"MAUVAIS",Toast.LENGTH_LONG).show();
+                            //Toast.makeText(Quiz_Checkbox_Activity.this,"MAUVAIS",Toast.LENGTH_LONG).show();
 
                         }
                         // on passe à la question suivante
@@ -298,6 +282,23 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
 
                     }
                 });
+
+                lesCheckBox.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                     /*   if(lesCheckBox.isChecked()&&lesCheckBox.getId()==idQuestion) {
+                            Toast.makeText(Quiz_Checkbox_Activity.this,"bonne reponse",Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            Toast.makeText(Quiz_Checkbox_Activity.this,"Dans le else",Toast.LENGTH_LONG).show();
+
+                        }*/
+                    }
+                });
+
+                ligneCheckboxCourrant.addView(lesCheckBox);
+
+
             }
         }
 
@@ -327,7 +328,7 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
 
             // reponse correcte, on l'affiche dans le textView resultat
             String bonneReponse = checkbox.getText().toString();
-            resultatTxtView.setText(bonneReponse+"!");
+            resultatTxtView.setText("Correct !");
             resultatTxtView.setTextColor(getResources().getColor(R.color.reponseCorrect));
             scoreTextView.setText(nbReponsesCorrect+" / 20");
             scoreTextView.setTextColor(getResources().getColor(R.color.reponseCorrect));
@@ -349,8 +350,8 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
         },1000); // passe à la question suivante après 1 sec
 
 
-    }
-*/
+    }*/
+
 
 }
 
