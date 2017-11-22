@@ -39,6 +39,7 @@ public class TypeQuiz extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
+                intent.putExtra("categorie",extra);
                 intent.setClass(ctx,Quiz_Checkbox_Activity.class);
                 startActivity(intent);
             }

@@ -119,7 +119,7 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
 
 
 
-        categorieSelectionnee = "synonyme";
+        categorieSelectionnee = getIntent().getStringExtra("categorie");
        // questionsQuiz =new ArrayList<>();
         //questionsSynonmes = TestManagerQuestion.getAll();
        // lesReponses = TestManagerReponse.getAll();
@@ -259,12 +259,14 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
                     }
                 });
 
+                ligneCheckboxCourrant.addView(lesCheckBox);
+
                 btnQuiz.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         //submitButton(lesCheckBox);
 
-                        if(lesCheckBox.isChecked()&&lesCheckBox.getId()==idQuestion){
+                        if(lesCheckBox.getId()==idQuestion){
                             nbReponsesCorrect++;
 
                             // reponse correcte, on l'affiche dans le textView resultat
@@ -296,7 +298,6 @@ public class Quiz_Checkbox_Activity extends AppCompatActivity {
 
                     }
                 });
-                ligneCheckboxCourrant.addView(lesCheckBox);
             }
         }
 
